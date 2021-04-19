@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cerulean/bootstrap.min.css"
+    integrity="sha512-dQLT/B7byn2LjN/DN4zeBKpwGV6qbidV0XiMRWQOL7TGrV7FkZFldkGG+DGMU+CQnMTcRZlUI7GMWt1j6akNew=="
+    crossorigin="anonymous" />
+  <title>Weather App </title>
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-danger">
+    <div class="container">
+      <a href="../" class="navbar-brand">Weather App <span style="color: rgb(238, 248, 237);">
+        </span> </a>
+        <a href="../" class="navbar-brand"><span style="color: rgb(238, 248, 237);"> <strong> Database</strong>
+      </span> </a>
+      <a href="../" class="navbar-brand"><span style="color: rgb(238, 248, 237);"> <strong>PDF</strong>
+    </span> </a>
+      <a href="https://openweathermap.org" class="navbar-tech">OpenWeather API</a>
+    </div>
+  </div>
+
+  <br /><br /> <br>
+  <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
+    <h1 class="display-5">Weather App </h1>
+    <h5>Designed using Python and Django Framework</h5>
+
+    
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <form method="post" class="col-md"">
+      {% csrf_token %}
+      <div class=" input-group">
+
+      <input type="text" class="form-control" name="city" placeholder="Choose Your City ...">
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-danger">Search</button>
+      </div>
+      </div>
+      <form>
+  </nav>
+  <br> <br>
+  <div class="container">
+    <div class="row">
+      {% if country_code and coordinate and temp and pressure and humidity %}
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4><span class="badge badge-danger">Country Code :</span> {{country_code}}</h4>
+        <h4><span class="badge badge-danger">Coordinates [X,Y] :</span> {{coordinate}}</h4>
+        <h4><span class="badge badge-danger">Temperature in Celsius :</span> {{temp}}</h4>
+        <h4><span class="badge badge-danger">Pressure :</span> {{pressure}} </h4>
+        <h4><span class="badge badge-danger">Humidity : </span> {{humidity}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4><span class="badge badge-danger">Forecast : </span> {{main}} <img
+            src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:120px"></h4>
+        <h4><span class="badge badge-danger">Description : </span> {{description}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  
+</body>
+
+</html>
