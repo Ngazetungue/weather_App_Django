@@ -1,52 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cerulean/bootstrap.min.css"
-    integrity="sha512-dQLT/B7byn2LjN/DN4zeBKpwGV6qbidV0XiMRWQOL7TGrV7FkZFldkGG+DGMU+CQnMTcRZlUI7GMWt1j6akNew=="
-    crossorigin="anonymous" />
-  <title>Weather App </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 </head>
-
 <body>
-  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-danger">
-    <div class="container">
-      <a href="../" class="navbar-brand">Weather App <span style="color: rgb(238, 248, 237);">
-        </span> </a>
-        <a href="../" class="navbar-brand"><span style="color: rgb(238, 248, 237);"> <strong> Database</strong>
-      </span> </a>
-      <a href="../" class="navbar-brand"><span style="color: rgb(238, 248, 237);"> <strong>PDF</strong>
-    </span> </a>
-      <a href="https://openweathermap.org" class="navbar-tech">OpenWeather API</a>
+    <div class="bg-hero">
+        <section class="top">
+            <header>
+                <a href="#">Developer</a>
+            </header>
+            <h1><span>The</span>Django Weather App</h1>
+            <p>The Weather App developed with Pytho, Django, CSS, HTML.<p>
+             
+            <div class="form-container">
+                <form action="post">
+                    {% csrf_token %}
+                    <div class="form-left">
+                        <label for="name">Enter name</label>
+                        <input type="text" name="city" id="name" placeholder="Choose city.....">
+                        <p>Example: Ngazetungue</p>
+                    </div>
+                    <input type="button" value="Find City Now">
+                </form>
+            </div>
+        </section>
     </div>
-  </div>
 
-  <br /><br /> <br>
-  <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
-    <h1 class="display-5">Weather App </h1>
-    <h5>Designed using Python and Django Framework</h5>
-
-    
-  </div>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-    <form method="post" class="col-md"">
-      {% csrf_token %}
-      <div class=" input-group">
-
-      <input type="text" class="form-control" name="city" placeholder="Choose Your City ...">
-      <div class="input-group-btn">
-        <button type="submit" class="btn btn-danger">Search</button>
-      </div>
-      </div>
-      <form>
-  </nav>
-  <br> <br>
-  <div class="container">
-    <div class="row">
+    <section class="authentic">
+        <div class="right-col">
+            <h2>Awesome</h2>
+            <div class="row">
       {% if country_code and coordinate and temp and pressure and humidity %}
       <div class="col-sm-6">
         <div class="card">
@@ -70,8 +58,9 @@
       </div>
     </div>
     {% endif %}
-  </div>
-  
-</body>
+        </div>
+        <img src="muheue.jpg" alt="my picture">
 
+    </section>
+</body>
 </html>
