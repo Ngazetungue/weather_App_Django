@@ -65,7 +65,7 @@
      margin-top: .3em;
  }
 
- input[type=button]{
+ button{
      background-color: #F89104;
      border:none;
      width: 100%;
@@ -77,7 +77,7 @@
      cursor: pointer;
 
 }
-input[type=button]:hover{
+button:hover{
     background-color: #221401;
  
 }
@@ -141,7 +141,7 @@ p {
     label{
         margin:0;
     }
-    input[type="button"]{
+    button{
         height: fit-content;
         font-size: 1.1em;
         margin-left: 1em;
@@ -154,7 +154,7 @@ p {
     section.authentic{
         display: grid;
         grid-template-columns: repeat(2, 50%);
-        grid-template-areas: "head content";
+        grid-template-areas: "weather content";
     }
     .right-col{
         grid-area: content;
@@ -164,7 +164,7 @@ p {
     }
 
     img{
-        grid-area: head;
+        grid-area: weather;
         height: 400px;
         margin: 3em;
 

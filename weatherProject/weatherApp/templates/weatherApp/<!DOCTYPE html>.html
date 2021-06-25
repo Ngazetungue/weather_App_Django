@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+    <div class="bg-hero">
+        <section class="top">
+            <header>
+                <a href="#">Developer</a>
+            </header>
+            <h1><span>The</span>Django Weather App</h1>
+            <p>The Weather App developed with Pytho, Django, CSS, HTML.<p>
+             
+            <div class="form-container">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-left">
+                        <label for="name">Enter name</label>
+                        <input type="text" name="city" id="name" placeholder="Choose city.....">
+                        <p>Example: Windhoek</p>
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <section class="authentic">
+        <div class="right-col">
+            <h2>Awesome</h2>
+            <div class="row">
+      {% if country_code and coordinate and temp and pressure and humidity %}
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4><span class="badge badge-danger">Country Code :</span> {{country_code}}</h4>
+            <h4><span class="badge badge-danger">Coordinates [X,Y] :</span> {{coordinate}}</h4>
+            <h4><span class="badge badge-danger">Temperature in Celsius :</span> {{temp}}</h4>
+            <h4><span class="badge badge-danger">Pressure :</span> {{pressure}} </h4>
+            <h4><span class="badge badge-danger">Humidity : </span> {{humidity}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4><span class="badge badge-danger">Forecast : </span> {{main}} <img
+            src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:120px"></h4>
+        <h4><span class="badge badge-danger">Description : </span> {{description}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+        </div>
+    </section>
+</body>
+</html>

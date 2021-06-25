@@ -18,49 +18,36 @@
             <p>The Weather App developed with Pytho, Django, CSS, HTML.<p>
              
             <div class="form-container">
-                <form action="post">
+                <form method="post">
                     {% csrf_token %}
                     <div class="form-left">
                         <label for="name">Enter name</label>
                         <input type="text" name="city" id="name" placeholder="Choose city.....">
-                        <p>Example: Ngazetungue</p>
+                        <p>Example: Windhoek</p>
                     </div>
-                    <input type="button" value="Find City Now">
+                    <button type="submit">Search</button>
                 </form>
             </div>
         </section>
     </div>
-
-    <section class="authentic">
+       <section class="authentic">
         <div class="right-col">
-            <h2>Awesome</h2>
-            <div class="row">
-      {% if country_code and coordinate and temp and pressure and humidity %}
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h4><span class="badge badge-danger">Country Code :</span> {{country_code}}</h4>
-        <h4><span class="badge badge-danger">Coordinates [X,Y] :</span> {{coordinate}}</h4>
-        <h4><span class="badge badge-danger">Temperature in Celsius :</span> {{temp}}</h4>
-        <h4><span class="badge badge-danger">Pressure :</span> {{pressure}} </h4>
-        <h4><span class="badge badge-danger">Humidity : </span> {{humidity}}</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h4><span class="badge badge-danger">Forecast : </span> {{main}} <img
-            src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:120px"></h4>
-        <h4><span class="badge badge-danger">Description : </span> {{description}}</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-        </div>
-        <img src="muheue.jpg" alt="my picture">
-
-    </section>
+          <h2>Weather Information</h2>
+            {% if country_code and coordinate and temp and pressure and humidity %}
+             
+                      <h4><span class="badge badge-danger">Country Code :</span> {{country_code}}</h4>
+                      <h4><span class="badge badge-danger">Coordinates [X,Y] :</span> {{coordinate}}</h4>
+                      <h4><span class="badge badge-danger">Temperature in Celsius :</span> {{temp}}</h4>
+                      <h4><span class="badge badge-danger">Pressure :</span> {{pressure}} </h4>
+                      <h4><span class="badge badge-danger">Humidity : </span> {{humidity}}</h4>
+                      <h4><span class="badge badge-danger">Forecast : </span> {{main}}</h4> 
+                      <h4><span class="badge badge-danger">Description : </span> {{description}}</h4>
+            {% endif %} 
+        <div>
+          {% if country_code and coordinate and temp and pressure and humidity %}
+                 <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:110px">
+            {% endif %}
+       </section>
+            
 </body>
 </html>
