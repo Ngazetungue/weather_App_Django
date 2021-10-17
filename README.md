@@ -6,9 +6,9 @@ The app getting weather updates through API'http://api.openweathermap.org/data/2
 
 ## Search for the search on search bar by City name
 
-[image](https://user-images.githubusercontent.com/10814039/137619664-e0f7405c-cf6d-453d-9bc5-fc699c71d78c.png)
+![image](https://user-images.githubusercontent.com/10814039/137619664-e0f7405c-cf6d-453d-9bc5-fc699c71d78c.png)
 
 
 ## Weather updates of City you entered
 
-[Uploading image.png…]()
+weather result.jpg![image](https://user-images.githubusercontent.com/10814039/137619938-8a1e033b-54bd-48bd-9dc8-a7ed78727096.png)
